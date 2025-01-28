@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(145deg, #141e30, #243b55);
+            color: #ffffff;
+        }
+        .header {
+            padding: 20px;
+            background-color: #0f0c29;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            width: 120px;
+        }
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: #f72585;
+        }
+        .profile-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1f2937;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .section h2 {
+            color: #0affef;
+            margin-bottom: 10px;
+        }
+        .chart-container {
+            width: 100%;
+            max-width: 400px; /* Restrict width of the chart container */
+            margin: 0 auto;
+            text-align: center;
+        }
+        .leaderboard, .badges, .streaks, .rewards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: #243b55;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+        .streak-count, .reward {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f72585;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <img src="logo.png" alt="Logo">
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="registration.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-container">
+        <!-- Performance Section -->
+        <div class="section">
+            <h2>Performance Graph</h2>
+            <div class="chart-container">
+                <canvas id="performanceChart" style="max-width: 100%; height: 300px;"></canvas>
+            </div>
+        </div>
+
+        <!-- Leaderboard Section -->
+        <div class="section">
+            <h2>Leaderboard</h2>
+            <div class="leaderboard">
+                <div class="card">
+                    <img src="gold_medal.png" alt="Gold Medal">
+                    <p>1st Place: <strong>John Doe</strong></p>
+                    <p>Points: <span class="streak-count">1520</span></p>
+                </div>
+                <div class="card">
+                    <img src="silver_medal.png" alt="Silver Medal">
+                    <p>2nd Place: <strong>Jane Smith</strong></p>
+                    <p>Points: <span class="streak-count">1450</span></p>
+                </div>
+                <div class="card">
+                    <img src="bronze_medal.png" alt="Bronze Medal">
+                    <p>3rd Place: <strong>Sam Brown</strong></p>
+                    <p>Points: <span class="streak-count">1400</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Streaks Section -->
+        <div class="section">
+            <h2>Your Streaks</h2>
+            <div class="streaks">
+                <div class="card">
+                    <img src="streak_icon.png" alt="Streak Icon">
+                    <p>Current Streak: <span class="streak-count">7 Days</span></p>
+                </div>
+                <div class="card">
+                    <img src="trophy_icon.png" alt="Trophy Icon">
+                    <p>Longest Streak: <span class="streak-count">15 Days</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badges Section -->
+        <div class="section">
+            <h2>Your Badges</h2>
+            <div class="badges">
+                <div class="card">
+                    <img src="badge1.png" alt="Badge">
+                    <p>Quiz Champion</p>
+                </div>
+                <div class="card">
+                    <img src="badge2.png" alt="Badge">
+                    <p>Code Master</p>
+                </div>
+                <div class="card">
+                    <img src="badge3.png" alt="Badge">
+                    <p>Consistency Pro</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rewards Section -->
+        <div class="section">
+            <h2>Rewards</h2>
+            <div class="rewards">
+                <div class="card">
+                    <p>🎁 Reward: <span class="reward">Free E-Book</span></p>
+                    <p>Earned by completing 5 mock interviews!</p>
+                </div>
+                <div class="card">
+                    <p>🎁 Reward: <span class="reward">Gift Voucher</span></p>
+                    <p>Earned by maintaining a 10-day streak!</p>
+                </div>
+                <div class="card">
+                    <p>🎁 Reward: <span class="reward">Premium Access</span></p>
+                    <p>Earned by scoring 90% in skill assessments!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Chatbot Project. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Performance Chart Script
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Performance Score',
+                    data: [60, 75, 85, 95],
+                    borderColor: '#f72585',
+                    backgroundColor: 'rgba(247, 37, 133, 0.3)',
+                    borderWidth: 2,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

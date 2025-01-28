@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Project</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(145deg, #141e30, #243b55);
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+            background-image:"girl.jpg";
+        }
+        .header {
+            padding: 20px;
+            background-color: #0f0c29;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            width: 120px;
+            filter: drop-shadow(0 0 10px #f72585);
+        }
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .nav a:hover {
+            background: linear-gradient(145deg, #ff0080, #ff5f5f);
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .hero h1 {
+            font-size: 48px;
+            color: #f72585;
+            text-shadow: 0 0 12px #f72585;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #0affef;
+            margin-bottom: 30px;
+        }
+        .hero button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: #ffffff;
+            background: linear-gradient(145deg, #ff0080, #ff5f5f);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
+            transition: all 0.3s ease;
+        }
+        .hero button:hover {
+            background: linear-gradient(145deg, #0affef, #5fd9ff);
+            box-shadow: 0 0 20px rgba(0, 255, 239, 0.7);
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+        .feature {
+            flex: 1;
+            max-width: 300px;
+            background: linear-gradient(145deg, #232323, #343434);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .feature h3 {
+            font-size: 22px;
+            color: #ff0080;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            font-size: 16px;
+            color: #0affef;
+        }
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            background-color: #0f0c29;
+            color: #ffffff;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .bg-image {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: -1;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <img src="logo.png" alt="Chatbot Logo">
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="registration.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="chatbot.html">Chatbot</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </div>
+
+    <!-- Landing Page -->
+    <div id="landing" class="active">
+        <div class="hero">
+            <h1>Your Learning Companion Awaits!</h1>
+            <p>"Personalized learning with AI: study resources, mock interviews, and real-time progress tracking—anytime, anywhere!".</p>
+            <a href="login.html"><button>Get Started</button></a>
+        </div>
+        <div class="features">
+            <div class="feature">
+                <h3>Interactive Tutorials</h3>
+                <p>Learn complex topics effortlessly with bite-sized lessons and engaging Q&A sessions.</p>
+            </div>
+            <div class="feature">
+                <h3>Mock Interviews</h3>
+                <p>Prepare for the future with real-time interview simulations and feedback.</p>
+            </div>
+            <div class="feature">
+                <h3>Skill Assessments</h3>
+                <p>Track your progress and gain confidence with personalized assessments.</p>
+            </div>
+            <div class="feature">
+                <h3>Community Support</h3>
+                <p>Connect with peers and experts for guidance and collaborative learning.</p>
+            </div>
+        </div>
+    </div>
+
+    <img class="bg-image" img src="girl.jpeg" alt="Background Image">
+
+    <div class="footer">
+        <p>&copy; 2025 Chatbot Project. All rights reserved.</p>
+    </div>
+</body>
+</html>
